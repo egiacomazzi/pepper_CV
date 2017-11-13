@@ -1,6 +1,6 @@
 # Pepper's Computer Vision
 
-##Basics##
+## Basics ##
 
 ### 1. Feature detection ###
 
