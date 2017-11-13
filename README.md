@@ -30,7 +30,7 @@ There are two different methods you can use with SIFT descriptors as well as wit
 
 At this point you can either print that the object was found or can draw a square around it with the hologram function.
 
-##Code##
+## Code ##
 I try to explaine my code for a faster understanding.
 You will need openCV installed. Check to install it with the correct dependencies (Python2.7 or 3.0?) and do not give up. It almost took me 2 days to get this done.  
 ```python
@@ -38,9 +38,17 @@ import numpy as np
 import cv2
 ```
 
-Function for
+#### Descriptors
+SIFT
 ```python
 def get_descriptor_sift(sift, img):
     kp, des = sift.detectAndCompute(img,None)
+    return kp, des
+```
+
+ORB
+```python
+def get_key_des_ORB(orb, img):
+    kp, des = orb.detectAndCompute(img,None)
     return kp, des
 ```
