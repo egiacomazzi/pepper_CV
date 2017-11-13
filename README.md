@@ -1,6 +1,6 @@
 # Pepper's Computer Vision
 ##Basics##
-### 1. Feature detection ##
+### 1. Feature detection ###
 
 There are different ways to find features in pictures.
   
@@ -20,7 +20,7 @@ There are different ways to find features in pictures.
 
 > Find both possibilities implemented in my code.
 	
-###2. Matching##
+###2. Matching###
 There are two different methods you can use with SIFT descriptors as well as with ORB descriptors. They are explained [here](https://docs.opencv.org/trunk/dc/dc3/tutorial_py_matcher.html).
 
 > Find all possibilities implemented in my code.
