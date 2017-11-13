@@ -1,5 +1,7 @@
 # Pepper's Computer Vision
+
 ##Basics##
+
 ### 1. Feature detection ###
 
 There are different ways to find features in pictures.
