@@ -23,7 +23,8 @@ There are different ways to find features in pictures.
 > Find both possibilities implemented in my code.
 	
 ### 2. Matching ###
-There are two different methods you can use with SIFT descriptors as well as with ORB descriptors. They are explained [here](https://docs.opencv.org/trunk/dc/dc3/tutorial_py_matcher.html).
+There are two different methods for matching descriptors. They both work with SIFT descriptors as well as with ORB descriptors. They are explained [here](https://docs.opencv.org/trunk/dc/dc3/tutorial_py_matcher.html).  
+
 
 > Find all possibilities implemented in my code.
 
@@ -38,7 +39,7 @@ import numpy as np
 import cv2
 ```
 
-#### Descriptors
+#### Keypoints and Descriptors
 SIFT
 ```python
 def get_descriptor_sift(sift, img):
@@ -52,3 +53,29 @@ def get_key_des_ORB(orb, img):
     kp, des = orb.detectAndCompute(img,None)
     return kp, des
 ```
+
+#### Matching
+
+BFM with SIFT
+```python
+def bfMatching_SIFT(bf, kp_img1, kp_img2, des_img1, des_img2, img1, img2):
+    #bf.knnMatch(des_img1, des_img2, k=2) : returns k best matches where k is specified by the user
+    matches = bf.knnMatch(des_img1, des_img2, k=2)
+
+    good = []
+    global good2
+    good2 = []
+    for m,n in matches:
+        if m.distance < 0.75*n.distance:
+            good.append([m])
+            good2.append(m)
+    if (len(good) > 10):
+         print("Found object in picture.")
+         
+    img_match = cv2.drawMatchesKnn(img1, kp_img1, img2, kp_img2, good, img1, flags=2)
+    cv2.imwrite('matching_SIFT_BFM.jpg',img_match)
+    return good, good2
+```
+
+BFM with ORB
+```python
